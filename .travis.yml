@@ -6,6 +6,7 @@ addons:
       - netpbm
       - x11-apps
       - ffmpeg
+      - chromium-browser
   artifacts:
     paths:
       - ./out.mpg
@@ -27,9 +28,9 @@ before_install:
 #   - sudo apt-get update -qq
 #   - sudo apt-get install -qq netpbm x11-apps
 
-install:
+# install:
   # - npm install
-  - npm install -g cypress
+  # - npm install -g cypress
 
 before_script:
   - "export DISPLAY=:98"
@@ -38,8 +39,9 @@ before_script:
 script:
   # - http-server -p 6060 &
   # - cypress ci &
-  - cypress install
-  - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
+  # - cypress install
+  # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
+  - "chromium-browser https://xvwnrialks.localtunnel.me/__/#/tests/03-logedout-order.js"
   - sleep 4
   - xwd -root -silent -display :98  > screen1.xwd
   - sleep 10
