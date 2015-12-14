@@ -35,32 +35,20 @@ before_script:
   - "export DISPLAY=:98"
 
 script:
-  - ps aux --sort -rss
-  - free -m
   # - http-server -p 6060 &
   # - cypress ci &
   - cypress install
   - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
-  - sleep 5
+  - sleep 4
   - xwd -root -silent -display :98  > screen1.xwd
-  - ffmpeg -y -r 30 -g 300 -f x11grab -s 1024x768 -i :98 out.mpg &
+  - ffmpeg -y -r 30 -g 300 -f x11grab -s 1280x1024 -i :98 out.mpg &
   - sleep 10
   - xwd -root -silent -display :98  > screen2.xwd
-  - ps aux --sort -rss
-  - free -m
   - sleep 10
   - xwd -root -silent -display :98  > screen3.xwd
-  - ps aux --sort -rss
-  - free -m
   - sleep 10
   - xwd -root -silent -display :98  > screen4.xwd
-  - ps aux --sort -rss
-  - free -m
   - sleep 10
   - xwd -root -silent -display :98  > screen5.xwd
-  - ps aux --sort -rss
-  - free -m
   - sleep 10
   - xwd -root -silent -display :98  > screen6.xwd
-  - ps aux --sort -rss
-  - free -m
