@@ -29,17 +29,29 @@ install:
   - npm install -g cypress
 
 script:
+  - ps aux --sort -rss
+  - free -m
   # - http-server -p 6060 &
   - cypress ci &
-  - sleep 20
+  - sleep 25
   - xwd -root -silent -display :99  > screen1.xwd
   - sleep 10
   - xwd -root -silent -display :99  > screen2.xwd
+  - ps aux --sort -rss
+  - free -m
   - sleep 10
   - xwd -root -silent -display :99  > screen3.xwd
+  - ps aux --sort -rss
+  - free -m
   - sleep 10
   - xwd -root -silent -display :99  > screen4.xwd
+  - ps aux --sort -rss
+  - free -m
   - sleep 10
   - xwd -root -silent -display :99  > screen5.xwd
+  - ps aux --sort -rss
+  - free -m
   - sleep 10
   - xwd -root -silent -display :99  > screen6.xwd
+  - ps aux --sort -rss
+  - free -m
