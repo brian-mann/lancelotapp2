@@ -5,8 +5,10 @@ addons:
     packages:
       - netpbm
       - x11-apps
+      - ffmpeg
   artifacts:
     paths:
+      - ./out.mpg
       - ./screen1.xwd
       - ./screen2.xwd
       - ./screen3.xwd
@@ -29,10 +31,12 @@ install:
   - npm install -g cypress
 
 script:
+  - ffmpeg -y -r 30 -g 300 -f x11grab -s 1024x768 -i :99.0 out.mpg &
   - ps aux --sort -rss
   - free -m
   # - http-server -p 6060 &
-  - cypress ci &
+  # - cypress ci &
+  - xvfb-run -s "-screen 0 1280x720x26" -a /home/travis/.cypress/Cypress --ci=9f697026-c394-4814-8ce9-0248b5f77c69 --project=.
   - sleep 25
   - xwd -root -silent -display :99  > screen1.xwd
   - sleep 10
