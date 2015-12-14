@@ -1,0 +1,28 @@
+# addons:
+#   artifacts:
+#     paths:
+#      - ./screen1.xwd
+#      - ./screen2.xwd
+#      - ./screen3.xwd
+#      - ./screen4.xwd
+#      - ./screen5.xwd
+#      - ./screen6.xwd
+#      - ./screen7.xwd
+
+language: node_js
+
+node_js:
+  - 0.12
+
+# before_install:
+#   - sudo apt-get update -qq
+#   - sudo apt-get install -qq netpbm x11-apps
+
+install:
+  # - npm install
+  - npm install -g cypress
+
+script:
+  # - http-server -p 6060 &
+  - cypress ci
+  # - xwd -root -silent -display :99  > screen1.xwd
