@@ -23,7 +23,7 @@ node_js:
   - 0.12
 
 before_install:
-  - /etc/init.d/xvfb stop
+  - pkill Xvfb
 #   - sudo apt-get update -qq
 #   - sudo apt-get install -qq netpbm x11-apps
 
