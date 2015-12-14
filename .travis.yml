@@ -22,7 +22,8 @@ language: node_js
 node_js:
   - 0.12
 
-# before_install:
+before_install:
+  - /etc/init.d/xvfb stop
 #   - sudo apt-get update -qq
 #   - sudo apt-get install -qq netpbm x11-apps
 
@@ -36,27 +37,27 @@ script:
   # - http-server -p 6060 &
   # - cypress ci &
   - cypress install
-  - xvfb-run -s "-screen 0 1280x720x26" -n 98 -e /dev/stdout -a /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
+  - xvfb-run -s "-screen 0 1280x720x26" -e /dev/stdout -a /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   - sleep 5
-  - xwd -root -silent -display :98  > screen1.xwd
-  - ffmpeg -y -r 30 -g 300 -f x11grab -s 1024x768 -i :98.0 out.mpg &
+  - xwd -root -silent -display :99  > screen1.xwd
+  - ffmpeg -y -r 30 -g 300 -f x11grab -s 1024x768 -i :99.0 out.mpg &
   - sleep 10
-  - xwd -root -silent -display :98  > screen2.xwd
+  - xwd -root -silent -display :99  > screen2.xwd
   - ps aux --sort -rss
   - free -m
   - sleep 10
-  - xwd -root -silent -display :98  > screen3.xwd
+  - xwd -root -silent -display :99  > screen3.xwd
   - ps aux --sort -rss
   - free -m
   - sleep 10
-  - xwd -root -silent -display :98  > screen4.xwd
+  - xwd -root -silent -display :99  > screen4.xwd
   - ps aux --sort -rss
   - free -m
   - sleep 10
-  - xwd -root -silent -display :98  > screen5.xwd
+  - xwd -root -silent -display :99  > screen5.xwd
   - ps aux --sort -rss
   - free -m
   - sleep 10
-  - xwd -root -silent -display :98  > screen6.xwd
+  - xwd -root -silent -display :99  > screen6.xwd
   - ps aux --sort -rss
   - free -m
