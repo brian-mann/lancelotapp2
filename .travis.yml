@@ -41,7 +41,7 @@ script:
   # - cypress ci &
   # - cypress install
   # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
-  - "chromium-browser https://xvwnrialks.localtunnel.me/__/#/tests/03-logedout-order.js"
+  - "chromium-browser --no-sandbox https://xvwnrialks.localtunnel.me/__/#/tests/03-logedout-order.js"
   - sleep 4
   - xwd -root -silent -display :98  > screen1.xwd
   - sleep 10
