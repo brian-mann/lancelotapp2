@@ -36,7 +36,7 @@ script:
   # - http-server -p 6060 &
   # - cypress ci &
   - cypress install
-  - xvfb-run -s "-screen 0 1280x720x26" -n 98 -e /dev/stdout /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
+  - xvfb-run -s "-screen 0 1280x720x26" -n 98 -e /dev/stdout -a /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   - sleep 5
   - xwd -root -silent -display :98  > screen1.xwd
   - ffmpeg -y -r 30 -g 300 -f x11grab -s 1024x768 -i :98.0 out.mpg &
