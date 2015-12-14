@@ -39,7 +39,7 @@ script:
   - free -m
   # - http-server -p 6060 &
   # - cypress ci &
-  - cypress ci &
+  - cypress install
   - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   - sleep 5
   - xwd -root -silent -display :98  > screen1.xwd
