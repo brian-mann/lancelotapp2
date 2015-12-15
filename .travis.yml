@@ -6,7 +6,7 @@ addons:
       - netpbm
       - x11-apps
       - ffmpeg
-      - chromium-browser
+      # - chromium-browser
   artifacts:
     paths:
       - ./out.mpg
@@ -28,8 +28,8 @@ before_install:
 #   - sudo apt-get update -qq
 #   - sudo apt-get install -qq netpbm x11-apps
 
-# install:
-  # - npm install
+install:
+  - npm install
   # - npm install -g cypress
 
 before_script:
@@ -40,7 +40,8 @@ script:
   # - cypress ci &
   # - cypress install
   # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
-  - "chromium-browser --no-sandbox http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
+  # - "chromium-browser --no-sandbox http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
+  - "./node_modules/.bin/electron . --url=http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js"
   - sleep 4
   - ffmpeg -y -r 30 -g 300 -t 120 -f x11grab -s 1280x1024 -i :98 out.mpg &
   - sleep 125

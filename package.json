@@ -1,0 +1,27 @@
+{
+  "name": "lancelotapp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^0.34.5",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brian-mann/lancelotapp2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brian-mann/lancelotapp2/issues"
+  },
+  "homepage": "https://github.com/brian-mann/lancelotapp2"
+}
