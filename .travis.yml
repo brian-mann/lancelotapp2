@@ -42,8 +42,8 @@ script:
   # - cypress install
   # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   # - "chromium-browser --no-sandbox http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
-  - wget https://s3.amazonaws.com/artifacts.cypress.io/chromium.zip
-  - unzip chromium.zip
+  - wget https://s3.amazonaws.com/artifacts.cypress.io/chromium-49.zip
+  - unzip chromium-49.zip
   - "./chrome-linux/chrome --no-sandbox --ignore-certificate-errors --window-size=1280,720 http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
   - ffmpeg -y -r 30 -g 300 -t 60 -f x11grab -s 1280x1024 -i :98 out.mpg &
   # - sed -i 's/\r//' ./node_modules/nw/bin/nw
