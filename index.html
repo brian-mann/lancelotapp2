@@ -25,6 +25,8 @@
     <script type="text/javascript">
       require("./lib/run.js")(nw.App.argv, {
         onReady: function(url){
+          process.stdout.write("onReady!")
+
           var iframe = document.createElement("iframe")
 
           iframe.setAttribute("nwdisable", "")
@@ -33,9 +35,7 @@
 
           document.body.appendChild(iframe)
 
-          // if (process.env.NODE_ENV != "production") {
-          //   nw.Window.get().showDevTools(iframe)
-          // }
+          nw.Window.get().showDevTools(iframe)
 
         }
       })
