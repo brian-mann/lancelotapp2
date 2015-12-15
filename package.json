@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "electron-prebuilt": "^0.34.5",
+    "electron-prebuilt": "^0.34.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {},
