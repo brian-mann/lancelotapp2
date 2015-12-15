@@ -6,6 +6,7 @@ addons:
       - netpbm
       - x11-apps
       - ffmpeg
+      - unzip
       # - chromium-browser
   artifacts:
     paths:
@@ -29,7 +30,7 @@ before_install:
 #   - sudo apt-get install -qq netpbm x11-apps
 
 install:
-  - npm install
+  # - npm install
   # - npm install -g cypress
 
 before_script:
@@ -41,9 +42,11 @@ script:
   # - cypress install
   # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   # - "chromium-browser --no-sandbox http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
+  - wget https://s3.amazonaws.com/artifacts.cypress.io/chromium.zip
+  - unzip chromium.zip
+  - "./chrome-linux/chrome --no-sandbox --ignore-certificate-errors --noerrdialogs --disable-sync --disable-default-apps --no-startup-window http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
   - ffmpeg -y -r 30 -g 300 -t 110 -f x11grab -s 1280x1024 -i :98 out.mpg &
   # - sed -i 's/\r//' ./node_modules/nw/bin/nw
-  - "./node_modules/nw/nwjs/nw . --url=http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
   # - sleep 4
   - sleep 120
   - xwd -root -silent -display :98  > screen1.xwd
