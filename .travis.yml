@@ -45,5 +45,5 @@ script:
   # - sed -i 's/\r//' ./node_modules/nw/bin/nw
   - "./node_modules/nw/nwjs/nw . --url=http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
   # - sleep 4
-  - sleep 65
+  - sleep 120
   - xwd -root -silent -display :98  > screen1.xwd
