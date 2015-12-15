@@ -2,12 +2,16 @@
   "name": "lancelotapp2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.html",
+  "window": {
+    "min_width": 1280,
+    "min_height": 720
+  },
   "directories": {
     "test": "tests"
   },
   "dependencies": {
-    "electron-prebuilt": "0.30.8",
+    "nw": "0.13.0-alpha7sdk",
     "minimist": "^1.2.0"
   },
   "devDependencies": {},

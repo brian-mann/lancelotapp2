@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Chromium</title>
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      iframe {
+        height: 100%;
+        width: 100%;
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      require("./lib/run.js")(nw.App.argv, {
+        onReady: function(url){
+          var iframe = document.createElement("iframe")
+
+          iframe.setAttribute("nwdisable", "")
+          iframe.setAttribute("nwfaketop", "")
+          iframe.src = url
+
+          document.body.appendChild(iframe)
+
+          // if (process.env.NODE_ENV != "production") {
+          //   nw.Window.get().showDevTools(iframe)
+          // }
+
+        }
+      })
+    </script>
+  </body>
+</html>
