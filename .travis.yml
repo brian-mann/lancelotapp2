@@ -41,8 +41,8 @@ script:
   # - cypress install
   # - /home/travis/.cypress/Cypress/Cypress --ci --key=9f697026-c394-4814-8ce9-0248b5f77c69 --project=/home/travis/build/brian-mann/lancelotapp2 &
   # - "chromium-browser --no-sandbox http://5074da32.ngrok.io/__/#/tests/03-logedout-order.js &"
-  - sed -i 's/\r//' ./node_modules/.bin/nw
-  - "./node_modules/.bin/nw . --url=http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
+  - sed -i 's/\r//' ./node_modules/nw/bin/nw
+  - "./node_modules/nw/bin/nw . --url=http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
   # - sleep 4
   - ffmpeg -y -r 30 -g 300 -t 60 -f x11grab -s 1280x1024 -i :98 out.mpg &
   - sleep 65
