@@ -23,6 +23,7 @@
   </head>
   <body>
     <script type="text/javascript">
+      process.stdout.write("foooo!!")
       require("./lib/run.js")(nw.App.argv, {
         onReady: function(url){
           process.stdout.write("onReady!")
