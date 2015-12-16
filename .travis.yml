@@ -45,7 +45,7 @@ script:
   - wget https://s3.amazonaws.com/artifacts.cypress.io/chromium-45.zip
   - unzip chromium-45.zip
   - "./chrome-linux/chrome --no-sandbox --ignore-certificate-errors --window-size=1280,1024 http://199e5ba7.ngrok.io/__#/tests/03-logedout-order.js &"
-  - ffmpeg -y -r 30 -g 300 -t 60 -f x11grab -s 1280x1024 -i :98 out.mpg &
+  - ffmpeg -y -r 30 -t 60 -f x11grab -s 1280x1024 -i :98 out.mpg &
   # - sed -i 's/\r//' ./node_modules/nw/bin/nw
   # - sleep 4
   - sleep 65
