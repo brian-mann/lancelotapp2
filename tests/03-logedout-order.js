@@ -21,7 +21,7 @@ describe('WebApp Loged out order [02s]',function(){
  			.server({force404: false, stub: false})
 			.route({ url: new RegExp(Cypress.env('apiURL')+'/1/places/autocomplete.*') }).as('autocomplete')
 
-			.route({ stub: true, url: new RegExp(Cypress.env('apiURL')+'/1/places/cityserved.*'), response: {"isValid":false}}).as('cityserved')
+			.route({ url: new RegExp(Cypress.env('apiURL')+'/1/places/cityserved.*')}).as('cityserved')
 
 			.route({ url: Cypress.env('apiURL')+'/1/me/profile'}).as('profile')
 
@@ -29,9 +29,7 @@ describe('WebApp Loged out order [02s]',function(){
 
 			.route({ url: new RegExp(Cypress.env('apiURL')+'/1/places/details/.*') }).as('places')
 
-			.visit(url)
-			// .get('a[href="book-brand-ambassador.html"]')
-			// .click()
+			.visit("http://dev.lancelotapp.com/book-brand-ambassador.html")
 			.get('form[name="booking-form"]')
 			.find('input[placeholder="City"]')
 			.type('miami')
@@ -51,8 +49,8 @@ describe('WebApp Loged out order [02s]',function(){
 			.get('#hours-quantity-container')
 			.find('.right-button')
 			.click()
-			// .get('.form-button-container')
-			// .find('input[type="submit"]')
+			.get('.form-button-container')
+			.find('input[type="submit"]')
 			// .click()
 			// .wait('@cityserved')
 			// .hash().should("match", new RegExp('#/order/details.*'))
